@@ -3,7 +3,7 @@ package model;
 public class Usuario {
     private String nome;
     private String senha;
-    private String role;
+    private String role; // Papel do usuário (GERENTE ou VENDEDOR)
 
     public Usuario(String nome, String senha, String role) {
         this.nome = nome;
@@ -11,16 +11,19 @@ public class Usuario {
         this.role = role;
     }
 
-    public boolean autenticar(String senhaDigitada) {
-        return this.senha.equals(senhaDigitada);
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSenha() {
+        return senha;
     }
 
     public String getRole() {
         return role;
     }
 
-    @Override
-    public String toString() {
-        return nome + "," + senha + "," + role;
+    public boolean autenticar(String senhaDigitada) {
+        return this.senha.equals(senhaDigitada);
     }
 }
